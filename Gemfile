@@ -11,9 +11,23 @@ gem 'bootsnap', '>= 1.4.2', require: false
 
 group :development, :test do
   gem 'byebug', platforms: %i[mri mingw x64_mingw]
+  gem 'pry-byebug'
+  gem 'pry-rails'
   gem 'rubocop'
   gem 'rubocop-performance'
   gem 'rubocop-rails'
+  gem 'factory_bot_rails'
+  gem 'faker'
+end
+
+group :test do
+  gem 'database_cleaner'
+  gem 'json_matchers'
+  gem 'rspec-rails'
+  gem 'shoulda-matchers', '~> 4.2'
+  gem 'simplecov', require: false
+  gem 'simplecov-summary'
+  gem 'simplecov-console'
 end
 
 group :development do
