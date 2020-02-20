@@ -13,6 +13,7 @@ group :development, :test do
   gem 'byebug', platforms: %i[mri mingw x64_mingw]
   gem 'pry-byebug'
   gem 'pry-rails'
+  gem 'bullet'
   gem 'rubocop'
   gem 'rubocop-performance'
   gem 'rubocop-rails'
