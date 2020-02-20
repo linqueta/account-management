@@ -6,3 +6,5 @@
 .byebug_history
 /config/master.key
 /coverage/*
+.env.development
+.env.test

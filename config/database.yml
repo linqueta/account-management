@@ -1,18 +1,22 @@
 default: &default
-  adapter: postgresql
-  encoding: unicode
-  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+  adapter: <%= ENV.fetch('DATABASE_ADAPTER') { 'postgresql' } %>
+  username: <%= ENV['DATABASE_USERNAME'] %>
+  password: <%= ENV['DATABASE_PASSWORD'] %>
+  host: <%= ENV['DATABASE_HOST'] %>
+  port: <%= ENV.fetch('DATABASE_PORT') { 5432 } %>
+  pool: <%= ENV.fetch('DATABASE_POOL') { 25 } %>
+  timeout: <%= ENV.fetch('DATABASE_TIMEOUT') { 5000 } %>
+  reconnect: <%= ENV.fetch('DATABASE_RECONNECT') { false } %>
+  encoding: <%= ENV.fetch('DATABASE_ENCODING') { 'utf8' } %>
 
 development:
+  database: <%= ENV['DATABASE_NAME'] %>_development
   <<: *default
-  database: account_management_development
 
 test:
+  database: <%= ENV['DATABASE_NAME'] %>_test
   <<: *default
-  database: account_management_test
 
 production:
+  database: <%= ENV['DATABASE_NAME'] %>
   <<: *default
-  database: account_management_production
-  username: account_management
-  password: <%= ENV['ACCOUNT_MANAGEMENT_DATABASE_PASSWORD'] %>

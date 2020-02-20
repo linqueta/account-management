@@ -19,6 +19,7 @@ group :development, :test do
   gem 'rubocop-rails'
   gem 'factory_bot_rails'
   gem 'faker'
+  gem 'dotenv-rails'
 end
 
 group :test do
