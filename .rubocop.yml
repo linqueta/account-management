@@ -1,0 +1,50 @@
+require:
+  - rubocop-performance
+  - rubocop-rails
+
+Bundler/OrderedGems:
+  Exclude:
+    - 'Gemfile'
+
+Style/MixinUsage:
+  Exclude:
+    - 'bin/*'
+
+Layout/LineLength:
+  Max: 120
+
+Style/Documentation:
+  Enabled: false
+
+Metrics/MethodLength:
+  Max: 30
+
+Metrics/ClassLength:
+  Max: 130
+
+Metrics/BlockLength:
+  Max: 30
+  Exclude:
+    - 'spec/**/*'
+
+Metrics/AbcSize:
+  Max: 20
+
+Rails/DynamicFindBy:
+  Enabled: false
+
+Style/HashEachMethods:
+  Enabled: true
+
+Style/HashTransformKeys:
+  Enabled: true
+
+Style/HashTransformValues:
+  Enabled: true
+
+AllCops:
+  TargetRubyVersion: 2.7.0
+  DisplayCopNames: true
+  Exclude:
+    - 'db/**/*'
+    - 'bin/*'
