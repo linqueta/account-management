@@ -1,17 +1,15 @@
 # frozen_string_literal: true
 
 class Event < ApplicationRecord
+  include Transferable
+
   belongs_to :account, inverse_of: :events
 
-  validate :positive_balance, on: :create
+  validates :balance, numericality: { greater_than: 0 }
 
   private
 
-  def positive_balance
-    errors.add(:amount, 'Your balance must be positive!') unless positive_balance?
-  end
-
-  def positive_balance?
-    (account.balance + amount).positive?
+  def balance
+    persisted? ? account.balance : account.balance + amount
   end
 end

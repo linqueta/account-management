@@ -6,17 +6,18 @@ RSpec.describe Event, type: :model do
   describe 'associations' do
     let(:event) { create :event }
 
-    it { expect(event).to belong_to(:account) }
+    it { expect(event).to have_many(:debit_transfers) }
+    it { expect(event).to have_many(:credit_transfers) }
   end
 
   describe 'validations' do
-    describe '#positive_balance' do
+    describe '#balance' do
       subject { event.validate! }
 
       let!(:account) { create :account }
       let(:event) { create :event, amount: amount, account: account }
       let(:error) { ActiveRecord::RecordInvalid }
-      let(:error_message) { 'Validation failed: Amount Your balance must be positive!' }
+      let(:error_message) { 'Validation failed: Balance must be greater than 0' }
 
       context 'without any old events' do
         context 'with positive event' do

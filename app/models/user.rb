@@ -10,12 +10,12 @@ class User < ApplicationRecord
 
   has_one :account, inverse_of: :user, dependent: :destroy
 
-  after_create :build_account
+  after_create :build_account!
 
   private
 
-  def build_account
-    self.account = Account.create!(user: self)
+  def build_account!
+    self.account = Account.create!(user: self) unless account
   end
 
   def password_required?

@@ -6,6 +6,8 @@ RSpec.describe Account, type: :model do
   describe 'associations' do
     it { is_expected.to belong_to(:user) }
     it { is_expected.to have_many(:events) }
+    it { is_expected.to have_many(:debit_transfers) }
+    it { is_expected.to have_many(:credit_transfers) }
   end
 
   describe '#balance' do
