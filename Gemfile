@@ -10,6 +10,7 @@ gem 'puma', '~> 4.1'
 gem 'bootsnap', '>= 1.4.2', require: false
 gem 'devise-jwt'
 gem 'dry-configurable', '0.9.0'
+gem 'active_model_serializers', '~> 0.10.10'
 
 group :development, :test do
   gem 'byebug', platforms: %i[mri mingw x64_mingw]

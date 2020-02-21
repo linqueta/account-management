@@ -7,6 +7,6 @@ class Account < ApplicationRecord
   has_many :events, inverse_of: :account, dependent: :destroy
 
   def balance
-    events.sum(:amount)
+    events.sum(:amount).to_f
   end
 end

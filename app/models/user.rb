@@ -1,6 +1,8 @@
 # frozen_string_literal: true
 
 class User < ApplicationRecord
+  class Unauthorized < StandardError; end
+
   devise :database_authenticatable,
          :validatable,
          :jwt_authenticatable,
