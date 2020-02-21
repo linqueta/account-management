@@ -1,0 +1,93 @@
+{
+  "definitions": {},
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "http://example.com/root.json",
+  "type": "object",
+  "title": "The Root Schema",
+  "required": [
+    "id",
+    "source_account",
+    "source_event",
+    "destination_event"
+  ],
+  "properties": {
+    "id": {
+      "$id": "#/properties/id",
+      "type": "integer",
+      "title": "The Id Schema",
+      "default": 0,
+      "examples": [
+        1
+      ]
+    },
+    "source_account": {
+      "$id": "#/properties/source_account",
+      "type": "object",
+      "title": "The Source_account Schema",
+      "required": [
+        "id",
+        "balance"
+      ],
+      "properties": {
+        "id": {
+          "$id": "#/properties/source_account/properties/id",
+          "type": "integer",
+          "title": "The Id Schema",
+          "default": 0,
+          "examples": [
+            2
+          ]
+        },
+        "balance": {
+          "$id": "#/properties/source_account/properties/balance",
+          "type": "number",
+          "title": "The Balance Schema",
+          "default": 0,
+          "examples": [
+            5
+          ]
+        }
+      }
+    },
+    "source_event": {
+      "$id": "#/properties/source_event",
+      "type": "object",
+      "title": "The Source_event Schema",
+      "required": [
+        "amount"
+      ],
+      "properties": {
+        "amount": {
+          "$id": "#/properties/source_event/properties/amount",
+          "type": "string",
+          "title": "The Amount Schema",
+          "default": "",
+          "examples": [
+            "-10.0"
+          ],
+          "pattern": "^(.*)$"
+        }
+      }
+    },
+    "destination_event": {
+      "$id": "#/properties/destination_event",
+      "type": "object",
+      "title": "The Destination_event Schema",
+      "required": [
+        "amount"
+      ],
+      "properties": {
+        "amount": {
+          "$id": "#/properties/destination_event/properties/amount",
+          "type": "string",
+          "title": "The Amount Schema",
+          "default": "",
+          "examples": [
+            "10.0"
+          ],
+          "pattern": "^(.*)$"
+        }
+      }
+    }
+  }
+}
